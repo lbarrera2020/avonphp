@@ -3,7 +3,7 @@ include 'conexion.php';
 
 	$nombre=$_POST['nombre'];
 	$usuario=$_POST['usuario'];
-	$clave=null;
+	$clave=$_POST['clave'];
 	$correo=$_POST['correo'];
 	$telcel=$_POST['telcel'];
 	$telfijo=$_POST['telfijo'];
@@ -12,14 +12,22 @@ include 'conexion.php';
 	$idtipousuario=3;
 	$fechacreacion =date("Y-m-d"); 
 	$fechainicio =null; 
-	$estado='1'; 
+	$estado='1';
+    $ref=$_POST['ref'];
 		
 
 	$json=array();
 
-	$sentencia=$conexion->prepare("INSERT INTO usuario(nombre,usuario,clave,correo,telcel,telfijo,idtipousuario,fechacreacion,
-	fechainicio,estado,direccion1,direccion2) VALUES ('{$nombre}','{$usuario}','{$clave}','{$correo}','{$telcel}','{$telfijo}','{$idtipousuario}','{$fechacreacion}','{$fechainicio}','{$estado}','{$direccion1}','{$direccion2}')");
+	$sentencia=$conexion->prepare("INSERT INTO 
+        usuario(nombre,usuario,clave,correo,telcel,telfijo,idtipousuario,
+        fechacreacion,fechainicio,estado,direccion1,direccion2) 
+	    VALUES ('{$nombre}','{$usuario}','{$clave}','{$correo}','{$telcel}','{$telfijo}',
+	    '{$idtipousuario}','{$fechacreacion}','{$fechainicio}','{$estado}','{$direccion1}','{$direccion2}')");
 	$resultado=$sentencia->execute();
+
+    if($ref!=NULL){
+        echo"<script language='JavaScript'>window.location.href='index.php?exito=1'</script>";
+    }
 
 	if($resultado){
 	$sentencia=$conexion->prepare("SELECT * FROM usuario WHERE usuario='{$usuario}'");
