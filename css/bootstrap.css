@@ -2718,7 +2718,45 @@ fieldset:disabled a.btn {
 .show > .btn-info.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
+/************************************/
 
+.btn-pink {
+  color: #fff;
+  background-color: #f64492;
+  border-color: #ce397a;
+}
+
+.btn-pink:hover {
+  color: #fff;
+  background-color: #f64492;
+  border-color: #ce397a;
+}
+
+.btn-pink:focus, .btn-pink.focus {
+  color: #fff;
+  background-color: #f64492;
+  border-color: #ce397a;
+  box-shadow: 0 0 0 0.2rem rgba(178, 50, 106, 0.5);
+}
+
+.btn-pink.disabled, .btn-pink:disabled {
+  color: #fff;
+  background-color: #f64492;
+  border-color: #ce397a;
+}
+
+.btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
+.show > .btn-pink.dropdown-toggle {
+  color: #fff;
+  background-color: #f64492;
+  border-color: #ce397a;
+}
+
+.btn-pink:not(:disabled):not(.disabled):active:focus, .btn-pink:not(:disabled):not(.disabled).active:focus,
+.show > .btn-pink.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(178, 50, 106, 0.5);
+}
+/***************************************/
 .btn-warning {
   color: #212529;
   background-color: #ffc107;
@@ -6746,6 +6784,16 @@ button.bg-secondary:focus {
   background-color: #545b62 !important;
 }
 
+.bg-pink {
+  background-color: #f64492 !important;
+}
+
+a.bg-pink:hover, a.bg-pink:focus,
+button.bg-pink:hover,
+button.bg-pink:focus {
+  background-color: #ce397a !important;
+}
+
 .bg-success {
   background-color: #28a745 !important;
 }
@@ -10119,6 +10167,14 @@ a.text-success:hover, a.text-success:focus {
 
 a.text-info:hover, a.text-info:focus {
   color: #0f6674 !important;
+}
+
+.text-pink {
+  color: #f64492 !important;
+}
+
+a.text-pink:hover, a.text-pink:focus {
+  color: #ce397a !important;
 }
 
 .text-warning {
