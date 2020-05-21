@@ -283,9 +283,10 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="usuario">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <form name="form_login" method="post" action="validarUsuario.php">
+            <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario">
+            <input type="text" id="clave" class="fadeIn third" name="clave" placeholder="password">
+            <input type="hidden" id="ref" name="ref" value="1">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
