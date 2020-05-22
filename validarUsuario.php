@@ -14,7 +14,7 @@ if ($fila = $resultado->fetch_assoc()) {
          echo json_encode($json,JSON_UNESCAPED_UNICODE);     
 }
 if($ref!=NULL){
-    echo"<script language='JavaScript'>window.location.href='index.php?exito=1'</script>";
+    echo"<script language='JavaScript'>window.location.href='menu.php'</script>";
 }
 $sentencia->close();
 $conexion->close();

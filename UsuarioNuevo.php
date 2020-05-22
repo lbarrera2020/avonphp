@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Prueba AVON</title>
+    <title>AVON</title>
 <!--    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" id="bootstrap-css">-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" id="bootstrap-css">
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

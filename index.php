@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Prueba AVON</title>
+    <title>AVON</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" id="bootstrap-css">
 <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
@@ -154,6 +154,36 @@
             color: #cccccc;
         }
 
+        input[type=password] {
+            background-color: #f6f6f6;
+            border: none;
+            color: #0d0d0d;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 85%;
+            border: 2px solid #f6f6f6;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        input[type=password]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+        input[type=password]:placeholder {
+            color: #cccccc;
+        }
+
 
 
         /* ANIMATIONS */
@@ -284,8 +314,8 @@
 
         <!-- Login Form -->
         <form name="form_login" method="post" action="validarUsuario.php">
-            <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario">
-            <input type="text" id="clave" class="fadeIn third" name="clave" placeholder="password">
+            <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario" required>
+            <input type="password" id="clave" class="fadeIn third" name="clave" placeholder="password" required>
             <input type="hidden" id="ref" name="ref" value="1">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
