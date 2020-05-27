@@ -6854,6 +6854,16 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
+.bg-pink-b {
+  background-color: #f64492 !important;
+}
+
+a.bg-pnik-b:hover, a.bg-pink-b:focus,
+button.bg-pink-b:hover,
+button.bg-pink-b:focus {
+  background-color: #ce397a !important;
+}
+
 .bg-white {
   background-color: #fff !important;
 }

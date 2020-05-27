@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>AVON</title>
-<!--    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" id="bootstrap-css">-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" id="bootstrap-css">
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
-<body>
+<?php
+include("encabezado.php");
+?>
+    <br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 pb-5">
@@ -104,5 +97,6 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+<?php
+include("pie.php");
+?>

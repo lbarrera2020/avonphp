@@ -1,19 +1,25 @@
 <?php
     require "conexion.php";
-    $usuario=$_POST['usuario'];
+    $usuario=$_GET['usuario'];
+//$usuario="lbarrera";
 //    $ref=$_POST['ref'];
     $json=array();
-//    $db = new MySQL();
-    $sentencia=$conexion->prepare("SELECT nombre,usuario,clave,correo FROM usuario WHERE usuario='{$usuario}'");
+    $sql="SELECT nombre,usuario,clave,correo FROM usuario WHERE usuario='{$usuario}'";
+//var_dump($usuario);
+//var_dump($sql);
+//exit();
+    $sentencia=$conexion->prepare($sql);
     $sentencia->execute();
     $resultado = $sentencia->get_result();
 WHILE ($fila = $resultado->fetch_assoc()) {
 //valores de las consultas
     $Nombre=$fila['nombre'];
+//    $email_tecnico="lbarrerac@gmail.com";
     $email_tecnico=$fila["correo"];
     $usuario_bd=$fila["usuario"];
     $clave=$fila["clave"];
-
+//    var_dump($email_tecnico);
+//    exit();
 //****************************************************************************
     $destinatario = $email_tecnico;
     $asunto = "Envio de Usuario y clave de AVON";
@@ -39,7 +45,8 @@ WHILE ($fila = $resultado->fetch_assoc()) {
              </body>
              </html>
              ';
-
+//var_dump($cuerpo);
+//exit();
     //para el envío en formato HTML
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
@@ -58,10 +65,8 @@ WHILE ($fila = $resultado->fetch_assoc()) {
 
              //direcciones que recibirán copia oculta
 //             $headers .= "Cco: dvs@salud.gob.sv\r\n";
+
              mail($destinatario,$asunto,$cuerpo,$headers);
-
-
-
 
 }
 if($fila!="")
