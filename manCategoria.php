@@ -6,14 +6,23 @@ include"encabezado.php";
 if(isset($_POST['nombre'])) {
     $id=$_POST['idd'];
     $nom=$_POST['nombre'];
+    //verifica si hay una categoria con el mismo nombre
+    $categoria = $conexion->prepare("select descripcion from categorias where descripcion='{$descripcion}'");
+    $categoria->execute();
+    $resultado = $categoria->get_result();
+    while ($fila = $resultado->fetch_assoc()) {
+        $nomigual=$fila['descripcion'];
+    }
+    if($nomigual==$descripcion){
+        echo"<script language='JavaScript'>window.location.href='manCategoria.php?d=1'</script>";
+    }else {
+
 $sql="UPDATE categorias SET descripcion='{$nom}' WHERE idcategorias={$id}";
-//    var_dump($sql);
-//    exit();
+
     $categoria = $conexion->prepare($sql);
-//    $categoria->bind_param("i", $id);
     $categoria->execute();
     $categoria->close();
-//    $conexion->close();
+}
 }
 //para mostras y modificar
 if(isset($_GET['id'])) {
@@ -38,6 +47,9 @@ if(isset($_GET['idx'])) {
     $sentencia->close();
 
 }
+if(isset($_GET['d'])) {
+    echo '<script language="javascript">alert("No puede ingresar Categorias con el mismo nombre");</script>';
+}
 ?>
     <div class="table-responsive">
         <?php
@@ -53,7 +65,17 @@ if(isset($_GET['idx'])) {
             <div class="card border-primary rounded-0">
                 <div class="card-header p-0">
                     <div class="bg-pink text-white text-center py-2">
-                        <h3><i class="fa fa-cubes"></i> Crear Categorias</h3>
+                        <?php
+                        if(isset($_GET['id'])){
+                            ?>
+                            <h3><i class="fa fa-cubes"></i> Modificar Categoria</h3>
+                            <?php
+                        }else{
+                            ?>
+                            <h3><i class="fa fa-cubes"></i> Crear Categoria</h3>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="card-body p-3">
@@ -85,7 +107,7 @@ if(isset($_GET['idx'])) {
                             <?php
                         }else{
                             ?>
-                            <input type="submit" value="Enviar" class="btn btn-pink btn-block rounded-0 py-2">
+                            <input type="submit" value="Crear Nuevo" class="btn btn-pink btn-block rounded-0 py-2">
                         <?php }?>
                     </div>
                 </div>
@@ -118,7 +140,6 @@ if(isset($_GET['idx'])) {
             ?>
         </table>
     </div>
-
 <?php
 include("pie.php");
 ?>

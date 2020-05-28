@@ -30,9 +30,9 @@
             <li class="submenu">
                 <a href="#"><span class="fa fa-building"></span>Campaña<span class="caret icon-arrow-down6"></span></a>
                 <ul class="children">
-                    <li><a href="#">Campaña<span class="fa fa-money-bill-alt"></span></a></li>
                     <li><a href="manCategoria.php">Categoria<span class="fa fa-cubes"></span></a></li>
-                    <li><a href="#">Tipo de Campaña<span class="fa fa-coins"></span></a></li>
+                    <li><a href="manTipoCampania.php">Tipo de Campaña<span class="fa fa-coins"></span></a></li>
+                    <li><a href="#">Campaña<span class="fa fa-money-bill-alt"></span></a></li>
                 </ul>
             </li>
             <li><a href="#"><span class="fa fa-qrcode"></span>Productos</a></li>

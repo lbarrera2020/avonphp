@@ -12,24 +12,26 @@ $resultado = $categoria->get_result();
 while ($fila = $resultado->fetch_assoc()) {
     $idcategorias=$fila['idmax']+1;
 }
+//verifica si hay una categoria con el mismo nombre
+$categoria = $conexion->prepare("select descripcion from categorias where descripcion='{$descripcion}'");
+$categoria->execute();
+$resultado = $categoria->get_result();
+while ($fila = $resultado->fetch_assoc()) {
+    $nomigual=$fila['descripcion'];
+}
+if($nomigual==$descripcion){
+    echo"<script language='JavaScript'>window.location.href='manCategoria.php?d=1'</script>";
+}else {
 
-//$data=array();
 
-$sentencia=$conexion->prepare("insert into categorias
+    $sentencia = $conexion->prepare("insert into categorias
 	(idcategorias, descripcion)
 	values ('{$idcategorias}', '{$descripcion}')");
-$resultado=$sentencia->execute();
+    $resultado = $sentencia->execute();
 
-echo"<script language='JavaScript'>window.location.href='manCategoria.php'</script>";
-//if($resultado){
-//    $data['Respuesta']=["OK"];
-//}
-//else
-//{
-//    $data ['Respuesta']=["ERROR"];
-//}
-//echo json_encode($data,JSON_UNESCAPED_UNICODE);
+    echo "<script language='JavaScript'>window.location.href='manCategoria.php'</script>";
 
-$sentencia->close();
-$conexion->close();
+    $sentencia->close();
+    $conexion->close();
+}
 ?>
