@@ -32,11 +32,11 @@
                 <ul class="children">
                     <li><a href="manCategoria.php">Categoria<span class="fa fa-cubes"></span></a></li>
                     <li><a href="manTipoCampania.php">Tipo de Campaña<span class="fa fa-coins"></span></a></li>
-                    <li><a href="#">Campaña<span class="fa fa-money-bill-alt"></span></a></li>
+                    <li><a href="manCampania.php">Campaña<span class="fa fa-money-bill-alt"></span></a></li>
                 </ul>
             </li>
-            <li><a href="#"><span class="fa fa-qrcode"></span>Productos</a></li>
-            <li><a href="tablaUsuarios.php"><span class="fa fa-users"></span>Usuarios</a></li>
+            <li><a href="manProductos.php"><span class="fa fa-qrcode"></span>Productos</a></li>
+            <li><a href="manUsuario.php"><span class="fa fa-users"></span>Usuarios</a></li>
         </ul>
     </nav>
 </header>
