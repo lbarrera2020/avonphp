@@ -11,7 +11,7 @@
         /* BASIC */
 
         html {
-            background-color: #56baed;
+            background-color: #FF00BF;
         }
 
         body {
@@ -322,7 +322,7 @@
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="#">¿Se te olvidó tu contraseña?</a>
+            <a class="underlineHover" href="recuperarpass.php">¿Se te olvidó tu contraseña?</a>
         </div>
 
     </div>

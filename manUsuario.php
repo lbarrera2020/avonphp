@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-include"encabezado.php";
+include 'encabezado.php';
 
 //para ejecutar UPDATE
 if(isset($_POST['nombre'])) {
