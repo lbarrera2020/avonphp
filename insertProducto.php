@@ -18,7 +18,7 @@ if (isset($_FILES["fileupload"]) && $_FILES['fileupload']['error'] == UPLOAD_ERR
     $tamano = $_FILES['fileupload']['size'];
     $extension = end((explode(".", $filename)));
     $valid_extension = array('jpg');
-    $target_dir = "img/productos";
+    $target_dir = "img/productos/";
 
     $final_name =
         trim(str_replace(' ','',$id)).'.'.$extension;

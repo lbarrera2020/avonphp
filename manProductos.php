@@ -8,29 +8,58 @@ if(isset($_POST['nombre'])) {
     $nom=$_POST['nombre'];
     $costo=$_POST['costo'];
     $stoc=$_POST['stoc'];
-    $idcate=$_POST['idcate'];
+    $idcate=$_POST['cate'];
     $estado=$_POST['estado'];
 
-    $fileupload=$fila['imagen'];
+    $final_name='';
 
-    //verifica si hay una categoria con el mismo nombre
-    $categoria = $conexion->prepare("select descripcion from categorias where descripcion='{$descripcion}'");
-    $categoria->execute();
-    $resultado = $categoria->get_result();
-    while ($fila = $resultado->fetch_assoc()) {
-        $nomigual=$fila['descripcion'];
+//    var_dump($_FILES['fileupload']);
+//    exit();
+    if(isset($_FILES['fileupload'])) {
+        if (isset($_FILES["fileupload"]) && $_FILES['fileupload']['error'] == UPLOAD_ERR_OK) {
+
+            $filename = $_FILES['fileupload']['name'];
+            $tamano = $_FILES['fileupload']['size'];
+            $extension = end((explode(".", $filename)));
+            $valid_extension = array('jpg');
+            $target_dir = "img/productos/";
+
+            $final_name =
+                trim(str_replace(' ', '', $id)) . '.' . $extension;
+
+
+            if (!in_array($extension, $valid_extension) || $tamano > 3000000) {
+
+                echo "<div style='background-color:red;color:white;font-weight:bold;text-align:center;'>Error: Ocurrio un problema al intentar subir la imagen !!!!</div>";
+            } else {
+                if (move_uploaded_file($_FILES['fileupload']['tmp_name'], $target_dir . $final_name)) {
+
+                    move_uploaded_file($_FILES['fileupload']['tmp_name'], $target_dir . $final_name);
+                }
+            }
+
+        }
     }
-    if($nomigual==$descripcion){
-        echo"<script language='JavaScript'>window.location.href='manProductos.php?d=1'</script>";
-    }else {
 
-        $sql="UPDATE categorias SET descripcion='{$nom}' WHERE idcategorias={$id}";
+    if(isset($_FILES['fileupload'])) {
+        $sql = "UPDATE productos SET
+        descripcion='{$nom}',precio={$costo},
+        stoc={$stoc},imagen='{$final_name}',categorias={$idcate},
+        estado={$estado} WHERE idproductos={$id}";
+
+    }else{
+        $sql = "UPDATE productos SET
+        descripcion='{$nom}',precio={$costo},
+        stoc={$stoc},categorias={$idcate},
+        estado={$estado} WHERE idproductos={$id}";
+
+    }
 
         $categoria = $conexion->prepare($sql);
         $categoria->execute();
         $categoria->close();
     }
-}
+//}
 //para mostras y modificar
 if(isset($_GET['id'])) {
     $id=$_GET['id'];
@@ -53,7 +82,7 @@ if(isset($_GET['id'])) {
 //para Eliminar
 if(isset($_GET['idx'])) {
     $id=$_GET['idx'];
-    $sentencia = $conexion->prepare("DELETE FROM categorias WHERE idcategorias={$id}");
+    $sentencia = $conexion->prepare("DELETE FROM productos WHERE idproductos={$id}");
     $sentencia->execute();
 
     $sentencia->close();
@@ -134,6 +163,7 @@ if(isset($_GET['d'])) {
                                 if(isset($_GET['id'])){
                                     ?>
                                     <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el produsto" value="<?php echo $costo;?>" required>
+
                                     <?php
                                 }else{
                                     ?>
@@ -160,12 +190,20 @@ if(isset($_GET['d'])) {
                         <div class="form-group">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
+                                <?php
+                                if(isset($_GET['id'])){
+                                ?>
+                                    <div class="input-group-text"><img src='img/productos/<?php echo $fileupload;?>' class='rounded-circle'  width='100' height='100'></i></div>
+                                    <?php
+                                }else{
+                                    ?>
                                     <div class="input-group-text"><i class="fa fa-image text-pink"></i></div>
+                                <?php }?>
                                 </div>
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del produto en formato jpg" value="<?php echo $fileupload;?>">
+                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del produto en formato jpg">
                                     <?php
                                 }else{
                                     ?>
