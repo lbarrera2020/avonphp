@@ -154,13 +154,13 @@ if(isset($_GET['idx'])) {
                                                 ?>
                                                 <option value="">Seleccione</option>
                                                 <option value="1" selected>Activo</option>
-                                                <option value="0">Inactivo</option>
+                                                <option value="2">Inactivo</option>
                                                 <?php
                                             }else{
                                                 ?>
                                                 <option value="" selected>Seleccione</option>
                                                 <option value="1">Activo</option>
-                                                <option value="0">Inactivo</option>
+                                                <option value="2">Inactivo</option>
                                                 <?php
                                             }
                                             ?>

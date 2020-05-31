@@ -13,6 +13,7 @@ while ($fila = $resultado->fetch_assoc()) {
     $idcategorias=$fila['idmax']+1;
 }
 //verifica si hay una categoria con el mismo nombre
+$nomigual='';
 $categoria = $conexion->prepare("select descripcion from categorias where descripcion='{$descripcion}'");
 $categoria->execute();
 $resultado = $categoria->get_result();
