@@ -1,7 +1,8 @@
 <?php
 include 'conexion.php';
 include"encabezado.php";
-
+$estado="a";
+//var_dump($estado);
 //para ejecutar UPDATE
 if(isset($_POST['nombre'])) {
     $id=$_POST['idd'];
@@ -249,18 +250,18 @@ if(isset($_GET['d'])) {
                                     if ($estado == 1){
                                         ?>
                                         <option value="">Seleccione el estado de el producto...</option>
-                                        <option value="1" selected>Activo</option>
+                                        <option value="1" selected="selected">Activo</option>
                                         <option value="2">Inactivo</option>
                                         <?php
                                     }else if ($estado == 0){
                                         ?>
                                         <option value="" >Seleccione el estado de el producto...</option>
                                         <option value="1">Activo</option>
-                                        <option value="2" selected>Inactivo</option>
+                                        <option value="2" selected="selected">Inactivo</option>
                                         <?php
                                     }else{
                                         ?>
-                                        <option value="" selected>Seleccione el estado de el producto...</option>
+                                        <option value="" selected="selected">Seleccione el estado de el producto...</option>
                                         <option value="1">Activo</option>
                                         <option value="2">Inactivo</option>
                                         <?php
