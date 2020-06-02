@@ -146,6 +146,7 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
+<!--                                    <input type="text" style="text-transform:uppercase" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" value="--><?php //echo $nombre;?><!--" required>-->
                                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" value="<?php echo $nombre;?>" required>
                                     <?php
                                 }else{
@@ -264,6 +265,7 @@ if(isset($_GET['d'])) {
                                         <option value="2">Inactivo</option>
                                         <?php
                                     }
+                                    $url="'ajaxBusque.php?id='+this.value";
                                     ?>
                                 </select>
                             </div>
@@ -282,7 +284,25 @@ if(isset($_GET['d'])) {
                     </div>
                 </div>
             </form>
-
+            <div class="card border-primary rounded-0" id="busque">
+                <div class="card-header p-0">
+                    <div class="bg-pink text-white text-center py-2">
+                        <h5><i class="fa fa-binoculars "></i>Area de filtros para busqueda</h5>
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <select name="buscar" id="buscar" onchange="cargarDiv('#busque',<?php echo $url;?>);">
+                            <option value="">Seleccione...</option>
+                            <option value="1">Codigo</option>
+                            <option value="2">Detalle</option>
+                            <option value="3">Precio</option>
+                            <option value="4">Categoria</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-primary rounded-0" id="tabla">
             <table class="table table-condensed table-bordered table-hover">
                 <tr>
                     <th>#</th>
@@ -328,6 +348,7 @@ if(isset($_GET['d'])) {
                 //            $conexion->close();
                 ?>
             </table>
+            </div>
     </div>
 <?php
 include("pie.php");
