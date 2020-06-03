@@ -1,6 +1,6 @@
 <div class="main">
     <div class="slides">
-	    <img src="img/banner/babanner.jpg" alt="">
+	    <img src="img/banner/banner.jpg" alt="">
         <img src="img/banner/banner01.jpg" alt="">
         <img src="img/banner/banner02.jpg" alt="">
         <img src="img/banner/banner03.jpg" alt="">

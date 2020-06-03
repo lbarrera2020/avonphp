@@ -130,12 +130,12 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" readonly class="form-control" id="codigo" name="codigo" placeholder="Ingrese el dodigo de el producto" value="<?php echo $codigo;?>" required>
+                                    <input type="text" readonly class="form-control" id="codigo" name="codigo" placeholder="Ingrese el codigo de el producto" value="<?php echo $codigo;?>" required>
                                     <input type="hidden" id="idd" name="idd" value="<?php echo $codigo;?>">
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el dodigo de el producto" required>
+                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el codigo de el producto" required>
                                 <?php }?>
                             </div>
                         </div>
