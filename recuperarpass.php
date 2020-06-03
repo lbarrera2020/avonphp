@@ -1,4 +1,7 @@
+
 <?php
+require('conexion.php');
+$correo=$_POST['correo'];
 if (isset($_POST['generar'])) {
     //Carácteres para la contraseña
     $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
@@ -9,12 +12,24 @@ if (isset($_POST['generar'])) {
        $password .= substr($str,rand(0,62),1);
     }
     //Mostramos la contraseña generada
-    echo 'Password generado: '.$password;
+	echo 'Password generado: '.$password;
+	
+	
  }
- $to = "2537362011@mail.utec.edu.sv";
+ 
+ 
+$sql = "SELECT COUNT(*) as contar FROM usuario WHERE correo='".$correo."';";
+$query=mysqli_query($conexion,$sql);
+$array = mysqli_fetch_array($query);
+
+
+
+
+if($array['contar']>0){
+ $to = $_POST['correo'];
  $subject = "HTML email";
  
- $message = "
+ $message ="esta es su clave de acceso <br> </be> <h1>$password</h1>
  <html>
  <head>
  <title>HTML email</title>
@@ -23,12 +38,12 @@ if (isset($_POST['generar'])) {
  <p>This email contains HTML Tags!</p>
  <table>
  <tr>
- <th>.$password</th>
+ <th>Firstname</th>
  <th>Lastname</th>
  </tr>
  <tr>
- <td>John</td>
- <td>Doe</td>
+ <td>Gino</td>
+ <td>Stefano</td>
  </tr>
  </table>
  </body>
@@ -44,8 +59,16 @@ if (isset($_POST['generar'])) {
  $headers .= 'Cc: myboss@example.com' . "\r\n";
  
  mail($to,$subject,$message,$headers);
-?>
+}else{
+	echo '<script language="javascript">alert("Correo no existe en la base de datos");</script>';
 
+}
+if(isset($_POST['correo'])){
+	$sql = "UPDATE usuario SET clave='".$password."' WHERE correo='".$correo."';";
+$query = mysqli_query($conexion,$sql);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
