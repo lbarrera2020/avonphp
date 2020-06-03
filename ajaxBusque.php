@@ -12,32 +12,42 @@ $url="'ajaxBusque.php?id='+this.value";
             </div>
         </div>
     </div>
-    <div class="input-group mb-2">
-    <div class="input-group-prepend">
-    <select name="buscar" id="buscar" onchange="cargarDiv('#busque',<?php echo $url;?>);">
-        <option value="">Seleccione...</option>
-        <option value="1" <?php if($idbu=='1'){echo 'selected="selected"';}?>>Codigo</option>
-        <option value="2" <?php if($idbu=='2'){echo 'selected="selected"';}?>>Detalle</option>
-        <option value="3" <?php if($idbu=='3'){echo 'selected="selected"';}?>>Precio</option>
-        <option value="4" <?php if($idbu=='4'){echo 'selected="selected"';}?>>Categoria</option>
-    </select>
-    </div>
+    <div class="form-group">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-filter text-pink"></i></div>
+            </div>
+            <div class="input-group-prepend">
+                <select name="buscar" id="buscar" onchange="cargarDiv('#busque',<?php echo $url;?>);">
+                    <option value="">Seleccione...</option>
+                    <option value="1" <?php if($idbu=='1'){echo 'selected="selected"';}?>>Codigo</option>
+                    <option value="2" <?php if($idbu=='2'){echo 'selected="selected"';}?>>Detalle</option>
+                    <option value="3" <?php if($idbu=='3'){echo 'selected="selected"';}?>>Precio</option>
+                    <option value="4" <?php if($idbu=='4'){echo 'selected="selected"';}?>>Categoria</option>
+                </select>
+            </div>
+
+<!--    </div>-->
+<!--    <div class="input-group mb-2">-->
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-search text-pink"></i></div>
+            </div>
     <div class="input-group-prepend">
     <?php
     if($idbu=='1'){
         $url="'ajaxProducto.php?id=$idbu&fil='+this.value";
     ?>
-        <input type="text" name="buscod" style="width:300px;height:25px" placeholder="Ingrese El codigo que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)" >
+        <input type="text" name="buscod" style="width:300px;height:30px" placeholder="Ingrese El codigo que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)" >
     <?php
     }elseif ($idbu=='2'){
         $url="'ajaxProducto.php?id=$idbu&fil='+this.value";
     ?>
-        <input type="text" name="busdeta" style="width:400px;height:25px" placeholder="Ingrese El Nombre de el producto que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)" >
+        <input type="text" name="busdeta" style="width:400px;height:30px" placeholder="Ingrese El Nombre de el producto que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)" >
     <?php
     }elseif ($idbu=='3'){
         $url="'ajaxProducto.php?id=$idbu&fil='+this.value";
         ?>
-        <input type="text" name="busprea" style="width:300px;height:25px" placeholder="Ingrese El precio maximo de que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)">
+        <input type="text" name="busprea" style="width:400px;height:30px" placeholder="Ingrese El precio maximo de que desea buscar" onkeyup="cargarDiv('#tabla',<?Php echo $url;?>)">
         <?php
     }elseif ($idbu=='4'){
         $sql="SELECT idcategorias, descripcion FROM categorias";
@@ -64,4 +74,5 @@ $url="'ajaxBusque.php?id='+this.value";
     }
     ?>
     </div>
+        </div>
 </div>

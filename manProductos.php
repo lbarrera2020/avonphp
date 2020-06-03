@@ -291,15 +291,20 @@ if(isset($_GET['d'])) {
                         <h5><i class="fa fa-binoculars "></i>Area de filtros para busqueda</h5>
                     </div>
                 </div>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <select name="buscar" id="buscar" onchange="cargarDiv('#busque',<?php echo $url;?>);">
-                            <option value="">Seleccione...</option>
-                            <option value="1">Codigo</option>
-                            <option value="2">Detalle</option>
-                            <option value="3">Precio</option>
-                            <option value="4">Categoria</option>
-                        </select>
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-filter text-pink"></i></div>
+                        </div>
+                        <div class="input-group-prepend">
+                            <select name="buscar" id="buscar" onchange="cargarDiv('#busque',<?php echo $url;?>);">
+                                <option value="">Seleccione...</option>
+                                <option value="1">Codigo</option>
+                                <option value="2">Detalle</option>
+                                <option value="3">Precio</option>
+                                <option value="4">Categoria</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
