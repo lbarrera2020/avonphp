@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+
+}else{
+    header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +46,9 @@
             </li>
             <li><a href="manProductos.php"><span class="fa fa-qrcode"></span>Productos</a></li>
             <li><a href="manUsuario.php"><span class="fa fa-users"></span>Usuarios</a></li>
+            <li><a href="manUsuario.php"><span class=""></span><h5><?php echo $_SESSION['usuario'] ?></h5></a></li>
+            <li><a href="salir.php"><span class="fas fa-hand-spock"></span>Cerrar sesion</a></li>
+            
         </ul>
     </nav>
 </header>

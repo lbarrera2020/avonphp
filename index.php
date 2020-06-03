@@ -313,7 +313,7 @@
         </div>
 
         <!-- Login Form -->
-        <form name="form_login" method="post" action="validarUsuario.php">
+        <form name="form_login" method="post" action="session.php">
             <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario" required>
             <input type="password" id="clave" class="fadeIn third" name="clave" placeholder="password" required>
             <input type="hidden" id="ref" name="ref" value="1">
