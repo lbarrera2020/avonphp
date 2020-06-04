@@ -106,7 +106,7 @@ if(isset($_GET['idx'])) {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="" class="form-control">Clave</label>
-                                        <input type="text" class="form-control" id="clave" name="clave" placeholder="" required value="<?=$clave?>">
+                                        <input type="text" class="form-control" id="clave" name="clave" placeholder="" required value="<?=$clave?>" readonly>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="" class="form-control">Correo</label>
@@ -201,7 +201,7 @@ if(isset($_GET['idx'])) {
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Usuario</th>
-                <th>Clave</th>
+<!--                <th>Clave</th>-->
                 <th>Correo</th>
                 <th>Tel Cel</th>
                 <th>Tel Fijo</th>
@@ -224,7 +224,7 @@ if(isset($_GET['idx'])) {
                 echo "<td>$i</td>";
                 echo "<td>".$fila['nombre']."</td>";
                 echo "<td>".$fila['usuario']."</td>";
-                echo "<td>".$fila['clave']."</td>";
+//                echo "<td>".$fila['clave']."</td>";
                 echo "<td>".$fila['correo']."</td>";
                 echo "<td>".$fila['telcel']."</td>";
                 echo "<td>".$fila['telfijo']."</td>";

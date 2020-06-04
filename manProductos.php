@@ -130,12 +130,12 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" readonly class="form-control" id="codigo" name="codigo" placeholder="Ingrese el codigo de el producto" value="<?php echo $codigo;?>" required>
+                                    <input type="text" readonly class="form-control" id="codigo" name="codigo" pattern="[0-9]{1,11}" title="solo se permiten numeros" placeholder="Ingrese el codigo de el producto" value="<?php echo $codigo;?>" required>
                                     <input type="hidden" id="idd" name="idd" value="<?php echo $codigo;?>">
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese el codigo de el producto" required>
+                                    <input type="text" class="form-control" id="codigo" name="codigo" pattern="[0-9]{1,11}" title="solo se permiten numeros" placeholder="Ingrese el codigo de el producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -148,11 +148,11 @@ if(isset($_GET['d'])) {
                                 if(isset($_GET['id'])){
                                     ?>
 <!--                                    <input type="text" style="text-transform:uppercase" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" value="--><?php //echo $nombre;?><!--" required>-->
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del producto" value="<?php echo $nombre;?>" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z0-9-]{1,45}" title="solo se permiten caracteres de la A-Z a-z 0-9 -" placeholder="Ingrese la descripcion del producto" value="<?php echo $nombre;?>" required>
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del producto" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z0-9-]{1,45}" title="solo se permiten caracteres de la A-Z a-z 0-9 -" placeholder="Ingrese la descripcion del producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -164,12 +164,12 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el producto" value="<?php echo $costo;?>" required>
+                                    <input type="text" class="form-control" id="costo" name="costo" pattern="[0-9]{1,4}" title="solo se permiten numeros" placeholder="Ingrese el Costo del producto" value="<?php echo $costo;?>" required>
 
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el producto" required>
+                                    <input type="text" class="form-control" id="costo" name="costo" pattern="[0-9]{1,4}" title="solo se permiten numeros" placeholder="Ingrese el Costo del producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -181,11 +181,11 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el producto" value="<?php echo $stoc;?>" required>
+                                    <input type="text" class="form-control" id="stoc" name="stoc" pattern="[0-9]{1,4}" title="solo se permiten numeros" placeholder="Ingrese la existencia de el producto" value="<?php echo $stoc;?>" required>
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el producto" required>
+                                    <input type="text" class="form-control" id="stoc" name="stoc" pattern="[0-9]{1,4}" title="solo se permiten numeros" placeholder="Ingrese la existencia de el producto" required>
                                 <?php }?>
                             </div>
                         </div>

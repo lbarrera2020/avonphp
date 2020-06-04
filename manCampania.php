@@ -141,11 +141,11 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Codigo de Campa&ntilde;a" value="<?php echo $codigo;?>" required>
+                                    <input type="text" class="form-control" id="codigo" name="codigo" pattern="[A-Za-z0-9]{1,30}" title="solo se permiten caracteres de la A-Z a-z 0-9" placeholder="Codigo de Campa&ntilde;a" value="<?php echo $codigo;?>" required>
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Codigo de Campa&ntilde;a" required>
+                                    <input type="text" class="form-control" id="codigo" name="codigo" pattern="[A-Za-z0-9]{1,30}" title="solo se permiten caracteres de la A-Z a-z 0-9" placeholder="Codigo de Campa&ntilde;a" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -157,12 +157,12 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Descripcion de Campa&ntilde;a" value="<?php echo $nombre;?>" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z0-9-]{1,45}" title="solo se permiten caracteres de la A-Z a-z 0-9 -" placeholder="Descripcion de Campa&ntilde;a" value="<?php echo $nombre;?>" required>
                                     <input type="hidden" id="idd" name="idd" value="<?php echo $id;?>">
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Descripcion de Campa&ntilde;a" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z0-9-]{1,45}" title="solo se permiten caracteres de la A-Z a-z 0-9 -" placeholder="Descripcion de Campa&ntilde;a" required>
                                 <?php }?>
                             </div>
                         </div>
