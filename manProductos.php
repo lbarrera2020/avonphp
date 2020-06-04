@@ -148,11 +148,11 @@ if(isset($_GET['d'])) {
                                 if(isset($_GET['id'])){
                                     ?>
 <!--                                    <input type="text" style="text-transform:uppercase" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" value="--><?php //echo $nombre;?><!--" required>-->
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" value="<?php echo $nombre;?>" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del producto" value="<?php echo $nombre;?>" required>
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del produto" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese la descripcion del producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -164,12 +164,12 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el produsto" value="<?php echo $costo;?>" required>
+                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el producto" value="<?php echo $costo;?>" required>
 
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el produsto" required>
+                                    <input type="text" class="form-control" id="costo" name="costo" placeholder="Ingrese el Costo de el producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -181,11 +181,11 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el produto" value="<?php echo $stoc;?>" required>
+                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el producto" value="<?php echo $stoc;?>" required>
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el produto" required>
+                                    <input type="text" class="form-control" id="stoc" name="stoc" placeholder="Ingrese la existencia de el producto" required>
                                 <?php }?>
                             </div>
                         </div>
@@ -205,11 +205,11 @@ if(isset($_GET['d'])) {
                                 <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del produto en formato jpg">
+                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del producto en formato jpg">
                                     <?php
                                 }else{
                                     ?>
-                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del produto en formato jpg" required>
+                                    <input type="file" class="form-control" id="fileupload" name="fileupload" placeholder="Ingrese la imagen del producto en formato jpg" required>
                                 <?php }?>
                             </div>
                         </div>
