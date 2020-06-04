@@ -85,7 +85,7 @@ if(isset($_SESSION['usuario'])){
         </ul>
     </nav>
     <div>
-        <h6>Usuario : <?php echo $_SESSION['usuario'] ?></h6>
+        <h6>Usuario : <?php echo $_SESSION['nombre'] ?></h6>
     </div>
 </header>
 
