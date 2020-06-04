@@ -68,17 +68,17 @@ if(isset($_GET['d'])) {
                         <?php
                         if(isset($_GET['id'])){
                             ?>
-                            <h3><i class="fa fa-cubes"></i> Modificar Categoria</h3>
+                            <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Modificar Categoria</h3>
                             <?php
                         }else{
                             ?>
-                            <h3><i class="fa fa-cubes"></i> Crear Categoria</h3>
+                            <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Crear Categoria</h3>
                             <?php
                         }
                         ?>
                     </div>
                 </div>
-                <div class="card-body p-3">
+                <div class="card-body p-3" id="caja" hidden>
 
                     <!--Body-->
                     <div class="form-group">

@@ -93,6 +93,7 @@ if(isset($_GET['d'])) {
     echo '<script language="javascript">alert("El codigo de el producto tiene que ser diferente");</script>';
 }
 ?>
+
     <div class="table-responsive">
         <?php
         if(isset($_GET['id'])){
@@ -109,17 +110,17 @@ if(isset($_GET['d'])) {
                             <?php
                             if(isset($_GET['id'])){
                                 ?>
-                                <h3><i class="fa fa-cubes"></i> Modificar Productos</h3>
+                                <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Modificar Productos</h3>
                                 <?php
                             }else{
                                 ?>
-                                <h3><i class="fa fa-cubes"></i> Crear Productos</h3>
+                                <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Crear Productos</h3>
                                 <?php
                             }
                             ?>
                         </div>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3" id="caja" hidden>
 
                         <!--Body-->
                         <div class="form-group">

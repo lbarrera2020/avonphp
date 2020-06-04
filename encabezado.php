@@ -40,6 +40,18 @@ if(isset($_SESSION['usuario'])){
     <script src="js/jquery.slides.js"></script>
     <script language="javascript" src="js/ajax.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script language="JavaScript">
+        var clic = 1;
+        function divLogin(){
+            if(clic==1){
+                document.getElementById("caja").hidden=false
+                clic = clic + 1;
+            } else{
+                document.getElementById("caja").hidden=true
+                clic = 1;
+            }
+        }
+    </script>
 </head>
 <body>
 <header>

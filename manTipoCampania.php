@@ -77,17 +77,17 @@ if(isset($_GET['d'])) {
                             <?php
                             if(isset($_GET['id'])){
                             ?>
-                                 <h3><i class="fa fa-cubes"></i> Modificar Tipo de campa&ntilde;a</h3>
+                                 <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Modificar Tipo de campa&ntilde;a</h3>
                             <?php
                             }else{
                             ?>
-                                 <h3><i class="fa fa-cubes"></i> Crear Tipo de campa&ntilde;a</h3>
+                                 <h3><a href="#" onclick="divLogin()"><i class="fa fa-cubes"></i></a> Crear Tipo de campa&ntilde;a</h3>
                             <?php
                             }
                             ?>
                         </div>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3" id="caja" hidden>
 
                         <!--Body-->
                         <div class="form-group">
