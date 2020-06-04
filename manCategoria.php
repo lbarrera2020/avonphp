@@ -89,12 +89,12 @@ if(isset($_GET['d'])) {
                             <?php
                                 if(isset($_GET['id'])){
                                     ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z]{1,45}" title="solo se permiten caracteres de la A-Za-z" placeholder="Descripcion de categoria" value="<?php echo $nombre;?>" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z ]{1,45}" title="solo se permiten caracteres de la A-Za-z" placeholder="Descripcion de categoria" value="<?php echo $nombre;?>" required>
                                     <input type="hidden" id="idd" name="idd" value="<?php echo $id;?>">
                                     <?php
                                 }else{
                             ?>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z]{1,45}" title="solo se permiten caracteres de la A-Za-z" placeholder="Descripcion de categoria" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z ]{1,45}" title="solo se permiten caracteres de la A-Za-z" placeholder="Descripcion de categoria" required>
                             <?php }?>
                         </div>
                     </div>
