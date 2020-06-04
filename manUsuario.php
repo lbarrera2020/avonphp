@@ -131,7 +131,7 @@ if(isset($_GET['idx'])) {
                                         <select class="form-control" name="idtipousuario" id="idtipousuario" required>
                                             <option value="">Seleccione</option>
                                             <?php
-                                            $sentencia=$conexion->prepare("SELECT * FROM tipousuario");
+                                            $sentencia=$conexion->prepare("SELECT * FROM tipousuario WHERE idtipousuario IN (1,2)");
                                             $sentencia->execute();
                                             $resultado = $sentencia->get_result();
                                             $i=0;
