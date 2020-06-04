@@ -59,7 +59,7 @@ if($array['contar']>0){
  $headers .= 'Cc: myboss@example.com' . "\r\n";
  
  mail($to,$subject,$message,$headers);
-}else{
+}else if($array['contar']<0){
 	echo '<script language="javascript">alert("Correo no existe en la base de datos");</script>';
 
 }
