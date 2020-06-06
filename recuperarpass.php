@@ -1,6 +1,7 @@
 
 <?php
 require('conexion.php');
+require 'mail/PHPMailerAutoload.php';
 $correo=$_POST['correo'];
 if (isset($_POST['generar'])) {
     //Carácteres para la contraseña
@@ -26,39 +27,34 @@ $array = mysqli_fetch_array($query);
 
 
 if($array['contar']>0){
- $to = $_POST['correo'];
- $subject = "HTML email";
- 
- $message ="esta es su clave de acceso <br> </be> <h1>$password</h1>
- <html>
- <head>
- <title>HTML email</title>
- </head>
- <body>
- <p>This email contains HTML Tags!</p>
- <table>
- <tr>
- <th>Firstname</th>
- <th>Lastname</th>
- </tr>
- <tr>
- <td>Gino</td>
- <td>Stefano</td>
- </tr>
- </table>
- </body>
- </html>
- ";
- 
- // Always set content-type when sending HTML email
- $headers = "MIME-Version: 1.0" . "\r\n";
- $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
- 
- // More headers
- $headers .= 'From: <webmaster@example.com>' . "\r\n";
- $headers .= 'Cc: myboss@example.com' . "\r\n";
- 
- mail($to,$subject,$message,$headers);
+$mail = new PHPMailer;
+
+$mail->Host='smt.gmail.com';  
+$mail ->Port='587';
+$mail ->SMTPAuth=true;
+$mail ->SMTPSecure='tls';
+
+$mail->Username='autecsv09@gmail.com';
+$mail->Password='Tripleh2o';
+
+$mail->setFrom('autecsv09@gmail.com','Portal Avon');
+$mail->addAddress($correo);
+$mail->addReplyTo('aeeu50634@gmail.com');
+
+$mail->isHTML(true);
+$mail->Subject='Recuperacion de clave de acceso';
+$mail->Body='<h1 align-center>Su nueva contaseña es</h1>'.$password;
+
+if(!$mail->send()){
+	echo '<script language="javascript">alert("Correo no enviado");</script>';
+}else{
+	echo '<script language="javascript">alert("Correo enviado regresar al inicio de sesion");</script>';
+}
+
+
+
+
+
 }else if($array['contar']<0){
 	echo '<script language="javascript">alert("Correo no existe en la base de datos");</script>';
 
