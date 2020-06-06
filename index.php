@@ -3,6 +3,7 @@
 <head>
     <title>AVON</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
@@ -315,17 +316,28 @@
         <!-- Login Form -->
         <form name="form_login" method="post" action="session.php">
             <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario" required>
-            <input type="password" id="clave" class="fadeIn third" name="clave" placeholder="password" required>
+            <input type="password" id="clave" class="fadeIn third " name="clave" placeholder="password" required>
+           
+           <div class="input-group-append">
+            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon">Mostrar contraseña</span> </button>
+          </div>
+       
             <input type="hidden" id="ref" name="ref" value="1">
             <input type="submit" class="fadeIn fourth" value="Log In">
+            
+         
+          
+     
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
             <a class="underlineHover" href="recuperarpass.php">¿Se te olvidó tu contraseña?</a>
         </div>
-
+       
     </div>
 </div>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/mostrarpass.js"></script>
 </body>
 </html>
