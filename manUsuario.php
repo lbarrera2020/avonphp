@@ -90,95 +90,169 @@ if(isset($_GET['idx'])) {
                 <div class="card-body p-3" id="caja" hidden>                    <!--Body-->
                     <div class="form-group">
                         <div class="input-group mb-2">
-                            <div class="container">
-                                <input type="hidden" name="idusuario" id="idusuario" value="<?=$idusuario?>">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$nombre?>" placeholder="" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Usuario</label>
-                                        <input type="<?=$hidden?>" class="form-control" id="usuario" name="usuario" placeholder="" required value="<?=$usuario?>">
-                                    </div>
-                                </div>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Clave</label>
-                                        <input type="text" class="form-control" id="clave" name="clave" placeholder="" required value="<?=$clave?>" readonly>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Correo</label>
-                                        <input type="text" class="form-control" id="correo" name="correo" placeholder="" required value="<?=$correo?>">
-                                    </div>
-                                </div>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Telefono Celular</label>
-                                        <input type="text" class="form-control" id="telcel" name="telcel" placeholder="" required value="<?=$telcel?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Telefono Fijo</label>
-                                        <input type="text" class="form-control" id="telfijo" name="telfijo" placeholder="" required value="<?=$telfijo?>">
-                                    </div>
-                                </div>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Tipo usuario</label>
-                                        <select class="form-control" name="idtipousuario" id="idtipousuario" required>
-                                            <option value="">Seleccione</option>
-                                            <?php
-                                            $sentencia=$conexion->prepare("SELECT * FROM tipousuario WHERE idtipousuario IN (1,2)");
-                                            $sentencia->execute();
-                                            $resultado = $sentencia->get_result();
-                                            $i=0;
-                                            WHILE ($fila = $resultado->fetch_assoc()) {
-                                                if($idtipousuario == $fila['idtipousuario']){
-                                                    echo " <option value='".$fila['idtipousuario']."' selected>".$fila['tipo_usuario']."</option>";
-                                                }else{
-                                                    echo " <option value='".$fila['idtipousuario']."'>".$fila['tipo_usuario']."</option>";
-                                                }
-                                            }
-                                            $sentencia->close();
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Estado</label>
-                                        <select class="form-control" name="estado" id="estado" required>
-                                            <?php
-                                            if ($estado == 1){
-                                                ?>
-                                                <option value="">Seleccione</option>
-                                                <option value="1" selected>Activo</option>
-                                                <option value="2">Inactivo</option>
-                                                <?php
-                                            }else{
-                                                ?>
-                                                <option value="" selected>Seleccione</option>
-                                                <option value="1">Activo</option>
-                                                <option value="2">Inactivo</option>
-                                                <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Direccion 1</label>
-                                        <input type="text" class="form-control" id="direccion1" name="direccion1" placeholder="" required value="<?=$direccion1?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="" class="form-control">Direccion 2</label>
-                                        <input type="text" class="form-control" id="direccion2" name="direccion2" placeholder="" required value="<?=$direccion2?>">
-                                    </div>
-                                </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-signature text-pink"></i></div>
                             </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el nombre del usuario" value="<?php echo $nombre;?>" required>
+                                <input type="hidden" name="idusuario" id="idusuario" value="<?=$idusuario?>">
+                                <?php
+                            }else{
+                                ?>
+                                <input type="text" class="form-control" id="nombre" name="nombre" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el nombre del usuario" required>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-user text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" value="<?php echo $usuario;?>" required>
+                                <?php
+                            }else{
+                                ?>
+                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" required>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-at text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrece el correo del usuario" value="<?php echo $correo;?>" required>
+                                <?php
+                            }else{
+                                ?>
+                                <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrece el correo del usuario" required>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-mobile-alt text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="tel" class="form-control" id="telcel" name="telcel" placeholder="Ingrece el numero de telefono movil del usuario" value="<?php echo $telcel;?>" required>
+                                <?php
+                            }else{
+                                ?>
+                                <input type="tel" class="form-control" id="telcel" name="telcel" placeholder="Ingrece el numero de telefono movil del usuario" required>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-phone text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="tel" class="form-control" id="telfijo" name="telfijo" placeholder="Ingrece el numero de telefono fijo del usuario" value="<?php echo $telfijo;?>">
+                                <?php
+                            }else{
+                                ?>
+                                <input type="tel" class="form-control" id="telfijo" name="telfijo" placeholder="Ingrece el numero de telefono fijo del usuario">
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-user-cog text-pink"></i></div>
+                            </div>
+                            <select class="form-control" name="idtipousuario" id="idtipousuario" required>
+                                <option value="">Seleccione</option>
+                                <?php
+                                $sentencia=$conexion->prepare("SELECT * FROM tipousuario WHERE idtipousuario IN (1,2)");
+                                $sentencia->execute();
+                                $resultado = $sentencia->get_result();
+                                $i=0;
+                                WHILE ($fila = $resultado->fetch_assoc()) {
+                                    if($idtipousuario == $fila['idtipousuario']){
+                                        echo " <option value='".$fila['idtipousuario']."' selected>".$fila['tipo_usuario']."</option>";
+                                    }else{
+                                        echo " <option value='".$fila['idtipousuario']."'>".$fila['tipo_usuario']."</option>";
+                                    }
+                                }
+                                $sentencia->close();
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-user-lock text-pink"></i></div>
+                            </div>
+                            <select class="form-control" name="estado" id="estado" required>
+                                <?php
+                                if ($estado == 1){
+                                    ?>
+                                    <option value="">Seleccione</option>
+                                    <option value="1" selected>Activo</option>
+                                    <option value="2">Inactivo</option>
+                                    <?php
+                                }elseif($estado == 2){
+                                    ?>
+                                    <option value="">Seleccione</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2" selected>Inactivo</option>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <option value="" selected>Seleccione</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-map-marker-alt text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="text" class="form-control" id="direccion1" name="direccion1" pattern="[A-Za-z0-9- #]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece la direccion del usuario" value="<?php echo $direccion1;?>" required>
+                                <?php
+                            }else{
+                                ?>
+                                <input type="text" class="form-control" id="direccion1" name="direccion1" pattern="[A-Za-z0-9- #]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece la direccion del usuario" required>
+                            <?php }?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-map-marker-alt text-pink"></i></div>
+                            </div>
+                            <?php
+                            if(isset($_GET['id'])){
+                                ?>
+                                <input type="text" class="form-control" id="direccion2" name="direccion2" pattern="[A-Za-z0-9- #]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece la direccion 2 del usuario" value="<?php echo $direccion2;?>">
+                                <?php
+                            }else{
+                                ?>
+                                <input type="text" class="form-control" id="direccion2" name="direccion2" pattern="[A-Za-z0-9- #]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece la direccion 2 del usuario">
+                            <?php }?>
                         </div>
                     </div>
                     <div class="text-center">
@@ -199,21 +273,14 @@ if(isset($_GET['idx'])) {
         <table class="table table-condensed table-bordered table-hover">
             <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
-<!--                <th>Clave</th>-->
-                <th>Correo</th>
-                <th>Tel Cel</th>
-                <th>Tel Fijo</th>
-                <th>Tipo Usuario</th>
-                <th>Fecha Creacion</th>
-                <th>Estado</th>
-                <th>Direecion 1</th>
-                <th>Direccion 2</th>
+                <th>Nombre/Usuario</th>
+                <th>Contactos</th>
+                <th>Tipo/Fecha/Estado</th>
+                <th>Direeciones</th>
                 <th colspan="2">Acci&oacute;n</th>
             </tr>
             <?php
-            $sentencia=$conexion->prepare("SELECT * FROM usuario INNER JOIN tipousuario ON tipousuario.idtipousuario = usuario.idtipousuario WHERE estado = 1 ORDER BY idusuario ASC");
+            $sentencia=$conexion->prepare("SELECT * FROM usuario INNER JOIN tipousuario ON tipousuario.idtipousuario = usuario.idtipousuario WHERE usuario.idtipousuario IN (1,2) and estado = 1 ORDER BY idusuario ASC");
             $sentencia->execute();
 
             $resultado = $sentencia->get_result();
@@ -222,28 +289,20 @@ if(isset($_GET['idx'])) {
                 $i=$i+1;
                 echo "<tr>";
                 echo "<td>$i</td>";
-                echo "<td>".$fila['nombre']."</td>";
-                echo "<td>".$fila['usuario']."</td>";
-//                echo "<td>".$fila['clave']."</td>";
-                echo "<td>".$fila['correo']."</td>";
-                echo "<td>".$fila['telcel']."</td>";
-                echo "<td>".$fila['telfijo']."</td>";
-                echo "<td>".$fila['tipo_usuario']."</td>";
-                echo "<td>".$fila['fechacreacion']."</td>";
+                echo "<td>Nombre :".$fila['nombre']."<br>Usuario : ".$fila['usuario']."</td>";
+                echo "<td>Movil : ".$fila['telcel']."<br>Casa : ".$fila['telfijo']."<br>Correo : ".$fila['correo']."</td>";
                 $estado = 'Inactivo';
                 if ($fila['estado'] == 1){
                     $estado = 'Activo';
                 }
-                echo "<td>".$estado."</td>";
-                echo "<td>".$fila['direccion1']."</td>";
-                echo "<td>".$fila['direccion2']."</td>";
+                echo "<td>Tipo : ".$fila['tipo_usuario']."<br>Fecha : ".$fila['fechacreacion']."<br>Estado : ".$estado."</td>";
+                echo "<td>Direc 1:".$fila['direccion1']."<br> Direc 2:".$fila['direccion2']."</td>";
 
-                echo "<td><a href='manUsuario.php?id=$fila[idusuario]'><span class='fa fa-edit'></span></a></td>";
+                echo "<td><a id='modi' href='manUsuario.php?id=$fila[idusuario]'><span class='fa fa-edit'></span></a></td>";
                 echo "<td><a href='manUsuario.php?idx=$fila[idusuario]'><span class='fa fa-trash-alt'></span></a></td>";
                 echo "</tr>";
             }
             $sentencia->close();
-            //            $conexion->close();
             ?>
         </table>
     </div>

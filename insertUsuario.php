@@ -15,7 +15,7 @@ $fechainicio = date('Y-m-d');
 $estado = $_POST['estado'];
 $direccion1 = $_POST['direccion1'];
 $direccion2 = $_POST['direccion2'];
-$usuario_add = ''; // meter valor de la sesion
+$usuario_add = $_SESSION['usuario']; // meter valor de la sesion
 $data = array();
 
 if ($idusuario>0) {
