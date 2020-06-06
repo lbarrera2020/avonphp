@@ -87,7 +87,7 @@ if(isset($_GET['d'])) {
                             ?>
                         </div>
                     </div>
-                    <div class="card-body p-3" id="caja" hidden>
+                    <div class="card-body p-3" id="caja" <?php if(isset($_GET['mod'])){}else{echo 'hidden';}?>>
 
                         <!--Body-->
                         <div class="form-group">
@@ -173,7 +173,7 @@ if(isset($_GET['d'])) {
                     echo "<td>$i</td>";
                     echo "<td>".$fila['tipocam']."</td>";
                     echo "<td>".$fila['cate']."</td>";
-                    echo "<td><a href='manTipoCampania.php?id=$fila[id]'><span class='fa fa-edit'></span></a></td>";
+                    echo "<td><a href='manTipoCampania.php?id=$fila[id]&mod=1'><span class='fa fa-edit'></span></a></td>";
                     echo "<td><a href='manTipoCampania.php?idx=$fila[id]'><span class='fa fa-trash-alt'></span></a></td>";
                     echo "</tr>";
                 }

@@ -78,7 +78,7 @@ if(isset($_GET['d'])) {
                         ?>
                     </div>
                 </div>
-                <div class="card-body p-3" id="caja" hidden>
+                <div class="card-body p-3" id="caja" <?php if(isset($_GET['mod'])){}else{echo 'hidden';}?>>
 
                     <!--Body-->
                     <div class="form-group">
@@ -103,7 +103,6 @@ if(isset($_GET['d'])) {
                         if(isset($_GET['id'])){
                             ?>
                             <input type="submit" value="Modificar" class="btn btn-pink btn-block rounded-0 py-2">
-<!--                            <button onclick="location.href='manCategoria.php'" class="btn btn-pink btn-block rounded-0 py-2">Modificar</button>-->
                             <?php
                         }else{
                             ?>
@@ -131,7 +130,7 @@ if(isset($_GET['d'])) {
                 echo "<tr>";
                     echo "<td>$i</td>";
                     echo "<td>".$fila['descripcion']."</td>";
-                    echo "<td><a href='manCategoria.php?id=$fila[idcategorias]'><span class='fa fa-edit'></span></a></td>";
+                    echo "<td><a href='manCategoria.php?id=$fila[idcategorias]&mod=1'><span class='fa fa-edit'></span></a></td>";
                     echo "<td><a href='manCategoria.php?idx=$fila[idcategorias]'><span class='fa fa-trash-alt'></span></a></td>";
                 echo "</tr>";
             }

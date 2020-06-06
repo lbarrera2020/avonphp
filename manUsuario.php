@@ -87,7 +87,7 @@ if(isset($_GET['idx'])) {
                         ?>
                     </div>
                 </div>
-                <div class="card-body p-3" id="caja" hidden>                    <!--Body-->
+                <div class="card-body p-3" id="caja" <?php if(isset($_GET['mod'])){}else{echo 'hidden';}?>>                    <!--Body-->
                     <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -298,7 +298,7 @@ if(isset($_GET['idx'])) {
                 echo "<td>Tipo : ".$fila['tipo_usuario']."<br>Fecha : ".$fila['fechacreacion']."<br>Estado : ".$estado."</td>";
                 echo "<td>Direc 1:".$fila['direccion1']."<br> Direc 2:".$fila['direccion2']."</td>";
 
-                echo "<td><a id='modi' href='manUsuario.php?id=$fila[idusuario]'><span class='fa fa-edit'></span></a></td>";
+                echo "<td><a id='modi' href='manUsuario.php?id=$fila[idusuario]&mod=1'><span class='fa fa-edit'></span></a></td>";
                 echo "<td><a href='manUsuario.php?idx=$fila[idusuario]'><span class='fa fa-trash-alt'></span></a></td>";
                 echo "</tr>";
             }
