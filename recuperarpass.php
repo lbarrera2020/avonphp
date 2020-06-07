@@ -103,7 +103,7 @@ $query = mysqli_query($conexion,$sql);
 							
 							<div style="margin-top:10px" class="form-group">
 								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success" name="generar">Enviar</a>
+                                    <button id="btn-login" type="submit" class="btn btn-success" name="generar">Enviar</button>>
 								</div>
 							</div>
 							

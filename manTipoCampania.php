@@ -138,14 +138,13 @@ if(isset($_GET['d'])) {
                             <?php
                             if(isset($_GET['id'])){
                                 ?>
-                            <div class="input-group-prepend">
-                                    <input type="submit" value="Modificar" class="btn btn-pink btn-block rounded-0 py-2">
-                            </div>
+                                <input type="submit" value="Modificar" class="btn btn-pink btn-block rounded-0 py-2">
                                 <?php
                             }else{
                                 ?>
                                 <input type="submit" value="Crear Nuevo" class="btn btn-pink btn-block rounded-0 py-2">
                             <?php }?>
+                            <button id="cancel" type="button" class="btn btn-pink btn-block rounded-0 py-2" name="cancel" onclick="location.href='manTipoCampania.php'">Cancelar</button>
                         </div>
                     </div>
                 </div>

@@ -108,6 +108,7 @@ if(isset($_GET['d'])) {
                             ?>
                             <input type="submit" value="Crear Nuevo" class="btn btn-pink btn-block rounded-0 py-2">
                         <?php }?>
+                        <button id="cancel" type="button" class="btn btn-pink btn-block rounded-0 py-2" name="cancel" onclick="location.href='manCategoria.php'">Cancelar</button>
                     </div>
                 </div>
             </div>
