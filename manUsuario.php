@@ -113,11 +113,11 @@ if(isset($_GET['idx'])) {
                             <?php
                             if(isset($_GET['id'])){
                                 ?>
-                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" value="<?php echo $usuario;?>" required>
+                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z0-9- ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" value="<?php echo $usuario;?>" required>
                                 <?php
                             }else{
                                 ?>
-                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" required>
+                                <input type="text" class="form-control" id="usuario" name="usuario" pattern="[A-Za-z0-9- ]{1,100}" title="solo se permiten caracteres de la A-Za-z" placeholder="Ingrece el usuario" required>
                             <?php }?>
                         </div>
                     </div>
