@@ -69,8 +69,8 @@ if(!empty($usuarioC)) {
              <h2>AVON le da la Bienvenida</h2>
              <h3>Se le envia el usuario y la clave para ingresar a dicho sistema</h3>
              <h4></h4>
-             <h4>Se le recuerad que esta clave es temporal y que al ingresar por</h4>
-             <h4>primeravez devera persoanlizar su clave de acceso.</h4>
+             <h4>Se le recuerda que esta clave es temporal y que al ingresar por</h4>
+             <h4>primera vez debera personalizar su clave de acceso.</h4>
              <h4>Usuario: '.$usuarioC.'</h4>
              <h4>Clave: '.$claveC. '</h4>
              <h4></h4>
@@ -80,6 +80,11 @@ if(!empty($usuarioC)) {
              </b>
              <h4>Atte. admin AVON</h4>
              </p>
+			 <a href=https://www.avon.com.sv/cam-home/especial-avon-cuidado-e-higiene><img src= https://www.avon.com.gt/dam/nola-assets/heroBanners_home/Higiene_Magnolia.jpg  width=50% height=50% >
+             </a>
+						<BR>
+						<BR>
+			 <a href = https://www.avon.com.sv/cam-home>Avon El Salvador</a>
              </body>
              </html>
              ';
