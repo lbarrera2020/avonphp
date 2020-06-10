@@ -4,7 +4,7 @@
     <title>AVON</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
@@ -316,9 +316,10 @@
         }
 
     </style>
-    <script language="javascript">
-
-    </script>
+<?php
+$u=$_GET['u'];
+$c=$_GET['c'];
+?>
 </head>
 <body>
 <div class="wrapper fadeInDown">
@@ -332,60 +333,23 @@
 
         <!-- Login Form -->
         <form name="form_login" method="post" action="session.php">
-            <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="usuario" required>
-            <input type="password" id="clave" class="fadeIn third " name="clave" placeholder="password" required>
-           
-           <div class="input-group-append">
-            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon">Mostrar contraseña</span> </button>
-          </div>
-       
+            <input type="text" id="u" class="fadeIn second" name="u" value="<?php echo $u;?>" placeholder="usuario" required>
+            <input type="password" id="c" class="fadeIn third " name="c" placeholder="cambie su clave" required>
+
+            <div class="input-group-append">
+                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon">Mostrar contraseña</span> </button>
+            </div>
+
             <input type="hidden" id="ref" name="ref" value="1">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="submit" class="fadeIn fourth" value="Cambiar clave">
 
         </form>
 
         <!-- Remind Passowrd -->
-        <div id="formFooter">
-<!--            <a class="underlineHover" href="recuperarpass.php">¿Se te olvidó tu contraseña?</a>-->
-            <a class="underlineHover" href="#" onclick="enviar()">¿Se te olvidó tu contraseña?</a>
-            <div id="olvido" hidden>
-                <input type="text" id="correo" class="fadeIn third " name="correo" placeholder="Ingresa el correo">
-                <a class="underlineHover" href="#" onclick="enviarC()">Enviar nueva clave al correo</a>
-            </div>
-<!--            <div id="cambio" hidden="hidden">-->
-<!--                <input type="hidden" id="ca" value="--><?php //$_GET['c']?><!--">-->
-<!--                <input type="hidden" id="u" value="--><?php //$_GET['u']?><!--">-->
-<!--                <input type="password" id="pas" class="fadeIn third " name="pas" placeholder="Ingresa tu nueva clave">-->
-<!--                <a class="underlineHover" href="#" onclick="cambiarC()">Cambiar clave</a>-->
-<!--            </div>-->
-        </div>
 
     </div>
 </div>
 <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
 <script src="js/mostrarpass.js"></script>
-<script language="javascript">
-    function enviar()
-    {
-        var usu = document.getElementById('usuario').value;
-        if(usu==''){
-            document.getElementById('olvido').hidden=false
-        }else{
-            location.href= "enviarCorreoPhp.php?usuario="+usu;
-        }
-    }
-    function enviarC()
-    {
-        var corr = document.getElementById('correo').value;
-
-        location.href= "enviarCorreoPhp.php?correo="+corr;
-    }
-    // function cambiarC()
-    // {
-    //     var cam=document.getElementById('ca').value;
-    //     var u=document.getElementById('u').value;
-    //     location.href= "session.php?c="+cam+"&u="+u;
-    // }
-</script>
 </body>
 </html>

@@ -2,10 +2,12 @@
 
 include 'conexion.php';
 
+include 'generarPass.php';
+
 $idusuario = $_POST['idusuario'];
 $nombre = $_POST['nombre'];
 $usuario = $_POST['usuario'];
-$clave = $_POST['clave'];
+$clave = $password;
 $correo = $_POST['correo'];
 $telcel = $_POST['telcel'];
 $telfijo = $_POST['telfijo'];
@@ -22,7 +24,6 @@ if ($idusuario>0) {
     $sentencia = $conexion->prepare("UPDATE usuario SET 
     nombre = '{$nombre}',
     usuario = '{$usuario}',
-    clave = '{$clave}',
     correo = '{$correo}',
     telcel = '{$telcel}',
     telfijo = '{$telfijo}',
@@ -45,7 +46,6 @@ if ($idusuario>0) {
     telfijo,
     idtipousuario,
     fechacreacion,
-    fechainicio,
     estado,
     direccion1,
     direccion2,
@@ -61,7 +61,6 @@ if ($idusuario>0) {
 	'{$telfijo}',
 	'{$idtipousuario}',
 	'{$fechacreacion}',
-	'{$fechainicio}',
 	'{$estado}',
 	'{$direccion1}',
 	'{$direccion2}',
@@ -69,6 +68,8 @@ if ($idusuario>0) {
 	)
 	");
     $resultado = $sentencia->execute();
+    $sql="SELECT nombre,usuario,clave,correo FROM usuario WHERE usuario='{$usuario}'";
+    include 'enviarCorreoPhp.php';
     echo "<script language='JavaScript'>window.location.href='manUsuario.php'</script>";
 }
 
